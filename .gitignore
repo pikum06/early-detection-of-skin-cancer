@@ -1,0 +1,32 @@
+# Byte-compiled / Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.env
+major_project/
+
+# Jupyter Notebook & Colab artifacts
+.ipynb_checkpoints/
+/gdrive/
+
+# Datasets & images
+base_dir/
+*.jpg
+*.jpeg
+*.png
+
+# Model weights & saved models
+*.h5
+*.hdf5
+
+# IDE & OS system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
