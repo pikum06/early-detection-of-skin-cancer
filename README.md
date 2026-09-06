@@ -57,6 +57,29 @@ The model is trained on the **Skin Cancer MNIST: HAM10000** dataset, a large-sca
 
 ---
 
+# Multi-Class Skin Lesion Classification using Transfer Learning
+
+This repository provides an end-to-end deep learning framework for multi-class skin lesion classification across seven diagnostic categories on the ISIC / HAM10000 dataset using fine-tuned **ResNet50** and **InceptionV3** backbones.
+
+---
+
+## Architecture Overview & Flowchart
+
+The model leverages transfer learning on ImageNet-pretrained convolutional backbones. early layers are frozen to retain low-level feature extraction capabilities, while the top 22 layers are unfreezed and fine-tuned for dermatological feature adaptation.
+
+```mermaid
+graph TD
+    A["Raw Lesion Image"] --> B["Preprocessing & Resizing<br/>ResNet50: 75x100x3 | InceptionV3: 299x299x3"]
+    B --> C["Pixel Normalization<br/>x / 255"]
+    C --> D["Pre-trained Backbone<br/>ResNet50 / InceptionV3<br/>Top 22 layers fine-tuned"]
+    D --> E["Global Average Pooling"]
+    E --> F["Dropout Layer<br/>Rate: 0.5"]
+    F --> G["Dense Layer<br/>128 units, ReLU, L2 Reg lambda=0.02"]
+    G --> H["Dropout Layer<br/>Rate: 0.5"]
+    H --> I["Dense Output Layer<br/>7 units, Softmax"]
+    I --> J["Diagnostic Target Class Prediction"]
+```
+
 ## Repository Structure
 
 ```text
@@ -69,6 +92,66 @@ The model is trained on the **Skin Cancer MNIST: HAM10000** dataset, a large-sca
     ├── predict.html           # Image upload and classification interface
     └── works.html             # System workflow and architectural details
 ```
+## Technical Specifications
+
+| **Feature** | **Details** | 
+| --- | --- |
+| Details | ResNet50, InceptionV3 (ImageNet pre-trained) |
+| Input Resolutions | $75 \times 100 \times 3$ (ResNet50), $299 \times 299 \times 3$ (InceptionV3) |
+| Classification Head | GAP $\rightarrow$ Dropout ($0.5$) $\rightarrow$ Dense ($128$ units, ReLU, L2 $\lambda = 0.02$) $\rightarrow$ Dropout ($0.5$) $\rightarrow$ Softmax ($7$ units) |
+| Target Classes | akiec (Actinic Keratoses), bcc (Basal Cell Carcinoma), bkl (Benign Keratosis), df (Dermatofibroma), mel (Melanoma), nv (Melanocytic Nevi), vasc (Vascular Lesions) |
+
+## Dependencies
+- **Core Runtime:** Python 3.7+
+- **Deep Learning Frameworks:** TensorFlow / TensorFlow-GPU v2.4.1, Keras v2.4.3
+- **Data Processing & I/O:** NumPy v1.19.5, SciPy v1.6.2, h5py v2.10.0, Pillow v8.2.0
+- **Visualization:** Matplotlib v3.4.1, Cycler, Kiwisolver
+
+## Installation and Setup
+
+1. **Repository Setup**
+[git clone](https://github.com/your-username/skin-lesion-classification.git)
+
+`cd skin-lesion-classification`
+
+2. **Environment Configuration**
+
+`pip install tensorflow-gpu==2.4.1 keras==2.4.3 numpy==1.19.5 scipy==1.6.2 h5py==2.10.0 pillow==8.2.0 matplotlib==3.4.1`
+
+3. **Data Preparation**
+
+Organize the dataset into subdirectories categorized by target labels:
+
+```text
+data/
+├── train_dir/
+│   ├── akiec/
+│   ├── bcc/
+│   └── ...
+└── val_dir/
+    ├── akiec/
+    ├── bcc/
+    └── ...
+```
+4. **Model Training & Evaluation**
+
+`python train.py --backbone resnet50 --epochs 50 --batch_size 32`
+
+5. **Inference Pipeline**
+
+`python predict.py --image_path path/to/sample.jpg --weights saved_models/resnet50_weights.h5`
+
+## Experimental Results
+
+- Parameter Breakdown (ResNet50 Backbone):
+  - Total Parameters: 23,850,887
+  - Trainable Parameters: 9,194,503
+  - Non-Trainable / Frozen Parameters: 14,656,384
+- Sample Validation Performance:
+  - Sample Evaluation (ISIC_0024475.jpg): Logit output vector [[-2.58, -1.32, -1.52, -2.44, -2.23, -0.39, -1.83]]
+  - Class Verdict: Predicted index 5 (vasc - Vascular Lesion)
+ 
+
 ## Citation
 
 If you use this codebase or model architecture in your research, please cite our publication:
