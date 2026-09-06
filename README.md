@@ -104,6 +104,7 @@ graph TD
 ## Installation and Setup
 
 1. **Repository Setup**
+
 [git clone](https://github.com/your-username/skin-lesion-classification.git)
 
 `cd skin-lesion-classification`
