@@ -1,23 +1,52 @@
-# Early detection of skin cancer through human-computer collaboration
+# Early Detection of Skin Cancer Through Human-Computer Collaboration
 
-## Abstract 
+This repository contains the implementation and web deployment pipeline for early skin cancer classification published in ***Artificial Intelligence in Medicine*** (CRC Press, 2024). The project utilizes a **ResNet-50** deep transfer learning architecture integrated with a **Flask** web application to facilitate human-computer collaboration in dermatological analysis.
 
-Skin cancer is a perilous disease due to which a lot of people suffer every year. The disease transpires on the skin of people and spreads all over the skin rapidly as shown in Figure 5.1. This occurs due to the peculiar growth of skin cells. Skin cancer is broadly classified into three distinct categories. These are basal cell cancer (BCC), squamous cell cancer (SCC), and melanoma. Melanoma is the most fatal of all the skin cancer types. It is difficult to detect melanoma from the naked eye.
-Most people get affected by skin cancer due to being exposed to ultraviolet radiation. People who have lighter skin are more prone to suffer from this disease. Body parts like the torso, or upper extremities or lower extremities, etc. are severely affected by skin cancer. By the end of 2018, there were around 300,000 patients with skin cancer. Over 1 million people have been identified with BCC or SCC in 2018. If we talk about melanoma, the worldwide cases for melanoma alone were around 150,000 by the year 2020. People of Australia and New Zealand were found to be highly infectious as shown in figure 5.2 [1]. The melanoma rates of Australian and New Zealand males were significantly high compared to other countries as shown in Figure 5.3.
+---
+
+## Authors
+
+* **Piyush Kumar**
+* **Rishi Chauhan**
+* **Achyut Shankar**
+* **Thompson Stephan**
+
+---
+
+## Abstract
+
+Skin cancer is a perilous disease due to which a lot of people suffer every year. The disease transpires on the skin of people and spreads all over the skin rapidly. Skin cancer is broadly classified into three distinct categories. These are basal cell cancer (BCC), squamous cell cancer (SCC), and melanoma. Melanoma is the most fatal of all the skin cancer types. It is difficult to detect melanoma from the naked eye.
+
+Most people get affected by skin cancer due to being exposed to ultraviolet radiation. People who have lighter skin are more prone to suffer from this disease.
+
+---
+
+## Overview
+
+Skin cancer is characterized by rapid, abnormal skin cell growth, primarily categorized into basal cell carcinoma (BCC), squamous cell carcinoma (SCC), and melanoma. Melanoma is the most aggressive form and presents significant diagnostic challenges when relying strictly on visual inspection. 
+
+Prolonged exposure to ultraviolet (UV) radiation remains a major risk factor, particularly affecting fair-skinned populations across high-incidence regions such as Australia and New Zealand. To address these diagnostic challenges, this project establishes a human-computer collaborative pipeline—leveraging deep transfer learning (ResNet-50) paired with an interactive Flask web application—to aid clinicians in early dermatological screening.
+
 ---
 
 ## Key Features
 
-* **ResNet-50 Architecture**: Fine-tuned deep convolutional neural network for automated dermatological feature extraction.
-* **7-Class Classification**: Classifies skin lesions into seven distinct diagnostic categories from the HAM10000 dataset.
-* **Flask Web Interface**: Interactive web application environment for uploading skin lesion images and retrieving real-time diagnostic predictions.
+* **ResNet-50 Architecture**: Fine-tuned deep convolutional network for automated dermatological feature extraction, achieving **93.47% validation accuracy**.
+* **7-Class Classification**: Multi-class diagnostic model targeting common pigmented skin lesions from the HAM10000 dataset.
+* **Flask Web Application**: Real-time deployment framework enabling users to upload image samples and view diagnostic outputs.
 
 ---
 
-## Dataset & Classification
+## Dataset
 
-The model is trained on the **HAM10000 ("Human Against Machine with 10000 training images")** benchmark dataset, covering the following 7 diagnostic classes:
+The model is trained on the **Skin Cancer MNIST: HAM10000** dataset, a large-scale collection of multi-source dermatoscopic images of pigmented lesions.
 
+* **Dataset Name**: Skin Cancer MNIST: HAM10000
+* **License**: CC BY-NC-SA 4.0
+* **Original Challenge**: [ISIC 2018 Challenge](https://challenge2018.isic-archive.com)
+* **Data Source**: [Harvard Dataverse (doi:10.7910/DVN/DBW86T)](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T)
+
+### Diagnostic Classes
 1. **Actinic Keratoses / Intraepithelial Carcinoma (akiec)**
 2. **Basal Cell Carcinoma (bcc)**
 3. **Benign Keratosis-like Lesions (bkl)**
@@ -33,6 +62,25 @@ The model is trained on the **HAM10000 ("Human Against Machine with 10000 traini
 ```text
 .
 ├── Flask_Framework.ipynb      # Web application deployment & API framework logic
-├── Major project 2021.ipynb   # Primary end-to-end training, evaluation & metrics notebook
-├── MP.ipynb                   # Model prototyping & pipeline experimentation
-└── content/                   # Stored artifacts, assets, and sample data
+├── Major project 2021.ipynb   # End-to-end training, evaluation & performance metrics notebook
+├── MP.ipynb                   # Model prototyping & experimentation script
+└── content/                   # Web interface HTML templates
+    ├── index.html             # Landing page template
+    ├── predict.html           # Image upload and classification interface
+    └── works.html             # System workflow and architectural details
+```
+## Citation
+
+If you use this codebase or model architecture in your research, please cite our publication:
+
+```
+@article{kumar2024early,
+  title={Early detection of skin cancer through human-computer collaboration},
+  author={Kumar, Piyush and Chauhan, Rishi and Shankar, Achyut and Stephan, Thompson},
+  journal={Artificial Intelligence in Medicine},
+  volume={324},
+  pages={71},
+  year={2024},
+  publisher={CRC Press}
+}
+```
