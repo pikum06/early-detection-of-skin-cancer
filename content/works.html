@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- <link rel="stylesheet" type="text/css" href="style4.css"> -->
+<style>
+    body {
+  font-family: 'Times New Roman', Times, serif;
+  align-content: center;
+  padding: 20px;
+  background: #0e0d0d;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: rgb(70, 212, 182);
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 100%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 0%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: rgb(250, 249, 249);
+  width: 100%;
+  padding: 5px;
+}
+
+.img{
+  width: 22%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+.menu{
+
+width: 100%;
+height: 100px;
+background-color: rgba(0,0,0,0.5);
+}
+
+.leftmenu{
+width: 40%;
+line-height: 45px;
+float: left;
+/*	background-color: yellow;*/
+}
+
+.leftmenu h4{
+padding-left: 20px;
+font-weight: bold;
+color: white;
+font-size: 24px;
+font-family: 'Montserrat', sans-serif;
+}
+
+
+.rightmenu{
+width:60%;
+height: 100px;
+float: right;
+/*	background-color: red; */
+}
+
+.rightmenu ul{
+margin-left: 500px;
+}
+
+.rightmenu ul li {
+font-family: 'Montserrat', sans-serif;
+display: inline-block;
+list-style: none;
+font-size: 15px;
+color:white;
+font-weight: bold;
+line-height: 70px;
+margin-left: 40px;
+text-transform: uppercase;
+
+}
+
+#fisrtlist{
+color: orange;
+}
+
+.rightmenu ul li:hover{
+color: orange;
+}
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+.card h2 {
+    font-size: 30px;
+}
+.card h5 {
+    font-size: 20px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: rgb(218, 200, 98);
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+</head>
+<div class="menu">
+			
+  <div class="leftmenu">
+    <h4> SKIN CANCER DETECTION </h4>
+  </div>
+
+  <div class="rightmenu">
+    <ul>
+      <li><a href='/'> Home</a> </li>
+      <li><a href='/test3'> Works</a></li>
+      <li><a href='/test4'> About us</a></li>
+      <li><a href='/test5'> Blogs</a> </li>
+    </ul>
+  </div>
+
+</div>
+<div class="header">
+    <h2> WORKS </h2>
+  </div>
+  
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>Objective of the project</h2>
+        <p>The soul purpose of the project was to reduce the patient-doctor interaction at the first stage where the skin cancer patients can detect the type of skin cancer they are suffering from or tend to have cancer symptoms via web application.</p>
+      </div>
+      <div class="card">
+        <h2>Proposed Architecture</h2>
+        <div class="fakeimg" style="height:200px;"><img src="../static/Arch.jpeg" alt="architecture" class='img'></div> 
+        <p>For classification of type of skin cancer, we used deep learning models and convolutional neural networks (CNN). In this project we have applied ResNet50 pre-trained model for training of images. A very popular dataset HAM10000 was used to for training and testing purposes. After applying ResNet50 architecture a dropout layer with rate 0.5 and dense layer with 128 features with activation function as Relu along with l2 regularizer of value 0.02 was added. Again, a dropout layer at the rate of 0.5 was added including a dense layer with number of image labels and activation function as Softmax along with l2 regularizer with value 0.02 was added. The last dense layer act as an output layer for the prediction of classes.  The layers of the model were not trained at first, rather weights were used.  Again, from beginning to last 22 layers were trained for accurate prediction of classes. </p>
+      </div>
+      <div class="card">
+        <h2>Benefit to the society</h2>
+        <ul>
+            <li>To digitalize the physical detection of skin cancer at early stage.</li>
+            <li>Benefit the cancer patients during COVID-19 pandemic.</li>
+            <li>It will assist dermatologists in better analysis of the cancer and thus curing it before-hand.</li>
+          </ul>
+      </div>
+      <div class="card">
+        <h2>Future Scope of the project </h2>
+        <ul>
+            <li>The map showing nearby hospitals and doctor can be implemented.</li>
+            <li>A domain name can be given to the website thus real time data can be evaluated.</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <h2>About us | Blogs | Home</h2>
+  </div>
+</html>

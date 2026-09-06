@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .card {
+           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+           margin: 8px;
+        }
+        .scimage {
+           width: 50%;
+           height: auto;
+           display: block;
+           margin-left: auto;
+           margin-right: auto;
+           padding: 10px;
+           border-radius: 20px;
+           padding-right: 20px;
+        }
+        .container {
+           padding: 0 16px;
+        }
+        .container::after, .row::after {
+           content: "";
+           clear: both;
+           display: table;
+        }
+        .title {
+           color: grey;
+           text-align: center;
+           font-size: 30px;
+        }
+        .container h2{
+            text-align: center;
+        }
+        .menu{
+
+width: 100%;
+height: 100px;
+background-color: rgba(0,0,0,0.5);
+display: block;
+}
+
+.leftmenu{
+width: 40%;
+line-height: 45px;
+float: left;
+/*	background-color: yellow;*/
+}
+
+.leftmenu h4{
+padding-left: 20px;
+font-weight: bold;
+color: white;
+font-size: 24px;
+font-family: 'Montserrat', sans-serif;
+}
+
+
+.rightmenu{
+width:60%;
+height: 100px;
+float: right;
+/*	background-color: red; */
+}
+
+.rightmenu ul{
+margin-left: 500px;
+}
+
+.rightmenu ul li {
+font-family: 'Montserrat', sans-serif;
+display: inline-block;
+list-style: none;
+font-size: 15px;
+color:white;
+font-weight: bold;
+line-height: 70px;
+margin-left: 40px;
+text-transform: uppercase;
+
+}
+
+#fisrtlist{
+color: orange;
+}
+
+.rightmenu ul li:hover{
+color: orange;
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div class="menu"> 
+			
+      <div class="leftmenu">
+        <h4> SKIN CANCER DETECTION </h4>
+      </div>
+    
+      <div class="rightmenu">
+        <ul>
+          <li><a href='/'> Home</a> </li>
+          <li><a href='/test3'> Works</a></li>
+          <li><a href='/test4'> About us</a></li>
+          <li><a href='/test5'> Blogs</a> </li>
+        </ul>
+      </div>
+    
+    </div> 
+    <br>
+    <!-- <img src='url("{{url_for('static',filename='./image')}}")'>; -->
+    <div class="card">
+         <img src="{{image}}" class='scimage'>
+         <div class="container">
+            <h2>Predicted class</h2>
+            <p class="title">{{ Prediction }}</p>
+          </div>    
+    </div>      
+
+</body>
+</html>

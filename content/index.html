@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+		 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic' rel='stylesheet'>
+		  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+<style>
+	*{
+	margin:0px;
+	padding:0px;
+}
+
+.bgimage{
+	background-image: url("{{url_for('static',filename='SC.jpg')}}");
+	background-size: 100% 110%;
+	width: 100%;
+	height: 100vh;
+}
+
+.menu{
+
+	width: 100%;
+	height: 100px;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.leftmenu{
+	width: 40%;
+	line-height: 100px;
+	float: left;
+/*	background-color: yellow;*/
+}
+
+.leftmenu h4{
+	padding-left: 20px;
+	font-weight: bold;
+	color: white;
+	font-size: 24px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+.rightmenu{
+	width:60%;
+	height: 100px;
+	float: right;
+/*	background-color: red; */
+}
+
+.rightmenu ul{
+	margin-left: 500px;
+}
+
+.rightmenu ul li {
+	font-family: 'Montserrat', sans-serif;
+	display: inline-block;
+	list-style: none;
+	font-size: 15px;
+	color:white;
+	font-weight: bold;
+	line-height: 100px;
+	margin-left: 40px;
+	text-transform: uppercase;
+
+}
+
+#fisrtlist{
+	color: orange;
+}
+
+.rightmenu ul li:hover{
+	color: orange;
+}
+
+
+.text{
+	width: 100%;
+	margin-top: 185px;
+	text-transform: uppercase;
+	text-align: center;
+	color:yellow;
+}
+
+.text h4{
+
+	font-size: 30px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.text h1{
+	font-size:62px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700px;
+	margin:14px 0px;
+}
+
+.text h3{
+	font-size: 15px;
+	font-family: 'Open Sans', sans-serif;
+}
+#buttonone{
+	background-color: white;
+	border: none;
+	font-size: 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 40px;
+	width: 150px;
+	font-family: 'Montserrat', sans-serif;
+	margin-top: 25px;
+	border: 3px solid white;
+}
+
+#buttontwo{
+
+	background-color: white;
+	border: none;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 40px;
+	border: 3px solid white;
+	width: 150px;
+}
+</style>
+		</head>
+<body>
+
+	<div class="bgimage">
+		<div class="menu">
+			
+			<div class="leftmenu">
+				<h4> SKIN CANCER DETECTION </h4>
+			</div>
+
+			<div class="rightmenu">
+				<ul>
+					<li><a href='/'> Home</a> </li>
+					<li><a href='/test3'> Works</a></li>
+					<li><a href='/test4'> About us</a></li>
+					<li><a href='/test5'> Blogs</a> </li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div class="text">
+			<h4> CURE • CARE • SECURE </h4>
+			<h1> DIAGNOSED & EXPERIENCED </h1>
+			<h3> WORLD’S TOP SKIN CANCER DETECTION SITES  </h3>
+			<br>
+			<br>
+			<form action="/predict" method="POST" enctype="multipart/form-data">
+				<input class="form-control mx-auto w-95" type="file" name="skinimage", accept=".jpg,.jpeg,.png,.jfif">
+				<button type="submit" class="btn btn-secondary mt-3">Predict</button>
+			</form>
+		</div>
+
+	</div>
+
+</body>
+</html>
