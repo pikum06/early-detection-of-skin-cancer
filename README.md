@@ -57,12 +57,6 @@ The model is trained on the **Skin Cancer MNIST: HAM10000** dataset, a large-sca
 
 ---
 
-# Multi-Class Skin Lesion Classification using Transfer Learning
-
-This repository provides an end-to-end deep learning framework for multi-class skin lesion classification across seven diagnostic categories on the ISIC / HAM10000 dataset using fine-tuned **ResNet50** and **InceptionV3** backbones.
-
----
-
 ## Architecture Overview & Flowchart
 
 The model leverages transfer learning on ImageNet-pretrained convolutional backbones. early layers are frozen to retain low-level feature extraction capabilities, while the top 22 layers are unfreezed and fine-tuned for dermatological feature adaptation.
